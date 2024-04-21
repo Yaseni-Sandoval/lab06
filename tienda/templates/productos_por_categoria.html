@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h2>Productos de la categoría: {{ categoria.nombre }}</h2>
+    <div class="row">
+        {% for producto in productos %}
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+                    <img class="card-img-top" src="{{ producto.imagen_url }}" alt="{{ producto.nombre }}">
+                <div class="card-body">
+                    <h5>{{ producto.nombre }}</h5>
+                    <p class="lead">Precio: S/ {{ producto.precio }}</p>
+                    <p>Stock: {{ producto.stock }}</p>
+                    <p>Fecha de registro: {{ producto.pub_date }}</p>
+                </div>
+                
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
